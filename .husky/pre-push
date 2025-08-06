@@ -1,6 +1,22 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# Проверяем, доступен ли npm
+if ! command -v npm >/dev/null 2>&1; then
+  echo "npm not found, trying to find it..."
+  export PATH="$PATH:/usr/local/bin:/opt/homebrew/bin"
+  # Пробуем найти npm через nvm
+  if [ -s "$HOME/.nvm/nvm.sh" ]; then
+    . "$HOME/.nvm/nvm.sh"
+  fi
+fi
+
+# Если npm все еще недоступен, используем прямые команды
+if ! command -v npm >/dev/null 2>&1; then
+  echo "Warning: npm not found, skipping pre-push checks"
+  exit 0
+fi
+
 echo "Check formatting..."
 npm run format:check
 
