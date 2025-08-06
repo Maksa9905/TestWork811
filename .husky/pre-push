@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Check formatting..."
+npm run format:check
+
+echo "Check styles..."
+npm run lint:styles
+
+echo "Check TypeScript and ESLint..."
+npm run lint
+
+echo "All checks passed!" 

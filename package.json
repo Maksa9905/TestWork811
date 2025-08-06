@@ -6,20 +6,49 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:styles": "stylelint \"**/*.{css,scss,sass}\"",
+    "lint:styles:fix": "stylelint \"**/*.{css,scss,sass}\" --fix",
+    "format:styles": "prettier --write \"**/*.{css,scss,sass}\"",
+    "format:check": "prettier --check \"**/*.{css,scss,sass}\"",
+    "format": "prettier --write .",
+    "styles": "npm run format:styles && npm run lint:styles",
+    "prepare": "husky"
   },
   "dependencies": {
+    "next": "15.4.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.4.6"
+    "sass": "^1.90.0",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
-    "@eslint/eslintrc": "^3"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "stylelint": "^16.23.0",
+    "stylelint-config-standard": "^39.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1",
+    "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{css,scss,sass}": [
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }
