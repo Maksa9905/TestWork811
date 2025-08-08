@@ -1,7 +1,6 @@
 'use client'
 
 import { Button } from '@/shared/ui'
-import styles from './LoginInfo.module.scss'
 import { LogoutIcon } from '@/shared/icons'
 import { UserController } from '@/entities/user'
 import { useCallback } from 'react'
@@ -23,7 +22,7 @@ const LoginInfo = () => {
 
   if (myInfo) {
     return (
-      <div className={styles.container}>
+      <div>
         <Button
           variant="icon"
           onClick={handleLogout}
