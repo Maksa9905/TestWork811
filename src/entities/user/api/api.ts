@@ -16,13 +16,9 @@ export class UserController {
       await ApiController.call('auth/logout', {
         method: 'POST',
       })
-
-      console.log('UserController: Серверный logout выполнен')
     } catch (error) {
       console.error('UserController: Ошибка серверного logout:', error)
     }
-
-    console.log('UserController: Клиентские cookies удалены')
   }
 
   static async getUser(accessToken?: string) {
