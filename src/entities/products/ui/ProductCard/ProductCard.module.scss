@@ -34,9 +34,17 @@
   color: var(--color-text-primary);
   font-weight: 400;
 
-  &:hover {
+  a:hover {
     text-decoration: underline;
     color: var(--color-secondary);
+  }
+
+  .category {
+    font-size: 10px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    font-weight: 400;
+    display: block;
   }
 }
 

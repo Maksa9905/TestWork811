@@ -1,6 +1,5 @@
 import { ApiController } from '@/shared/api'
 import { LoginBody, LoginResponse } from './types'
-import { CookiesController } from '@/shared/utils'
 
 export class UserController {
   static async login(body: LoginBody) {
@@ -13,7 +12,17 @@ export class UserController {
   }
 
   static async logout() {
-    CookiesController.removeCookie('isAuthorized')
+    try {
+      await ApiController.call('auth/logout', {
+        method: 'POST',
+      })
+
+      console.log('UserController: Серверный logout выполнен')
+    } catch (error) {
+      console.error('UserController: Ошибка серверного logout:', error)
+    }
+
+    console.log('UserController: Клиентские cookies удалены')
   }
 
   static async getUser(accessToken?: string) {

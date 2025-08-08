@@ -14,7 +14,8 @@ const LoginInfo = () => {
 
   const handleLogout = useCallback(async () => {
     await UserController.logout()
-  }, [])
+    router.push(routes.login)
+  }, [router])
 
   const handleLoginButtonClick = useCallback(() => {
     router.push(routes.login)

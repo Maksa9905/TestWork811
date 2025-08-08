@@ -18,6 +18,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <header className={styles.header}>
         <h3 className={styles.title}>
           <Link href={routes.product(product.id)}>{product.title}</Link>
+          <span className={styles.category}>{product.category}</span>
         </h3>
       </header>
       <Image
