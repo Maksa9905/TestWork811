@@ -1,0 +1,8 @@
+export { default as LogotypeIcon } from './LogotypeIcon'
+export { default as BurgerIcon } from './BurgerIcon'
+export { default as CrossIcon } from './CrossIcon'
+export { default as UserIcon } from './UserIcon'
+export { default as LogoutIcon } from './LogoutIcon'
+export { default as AddToCartIcon } from './AddToCartIcon'
+export { default as AddedToCartIcon } from './AddedToCartIcon'
+export { default as LoaderIcon } from './LoaderIcon'

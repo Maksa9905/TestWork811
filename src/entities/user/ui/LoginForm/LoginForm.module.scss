@@ -1,0 +1,64 @@
+.logincontainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.loginform {
+  width: 320px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--color-border);
+  border-right: none;
+  padding: 16px;
+
+  @media (width <= 768px) {
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+.logininfo {
+  background-image: url('https://t3.ftcdn.net/jpg/01/09/44/88/240_F_109448864_I6ZAGmXWfhcBbTCZzHlcQi9BvfTRuM62.jpg');
+  width: 320px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 16px;
+
+  @media (width <= 768px) {
+    display: none;
+  }
+}
+
+.greeting {
+  font-size: 24px;
+}
+
+.logintitle {
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.logindescription {
+  font-size: 14px;
+  color: var(--color-white);
+}
+
+.formfields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
