@@ -10,11 +10,9 @@ export async function middleware(request: NextRequest) {
   const accessToken = request.cookies.get('accessToken')?.value
   const refreshToken = request.cookies.get('refreshToken')?.value
 
-  if (!accessToken || !refreshToken) {
+  if (accessToken || !refreshToken) {
     return NextResponse.next()
   }
-
-  if (accessToken) return NextResponse.next()
 
   try {
     console.log('Middleware: Выполняю refresh токенов...')
