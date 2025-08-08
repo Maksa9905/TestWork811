@@ -1,0 +1,57 @@
+@mixin button-variant($variant) {
+  @if $variant == 'contained' {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border: none;
+  } @else if $variant == 'outlined' {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+  } @else if $variant == 'icon' {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: none;
+    padding: 8px;
+  }
+}
+
+.button {
+  padding: 8px 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &:focus-visible {
+    outline: 2px dashed var(--color-secondary);
+  }
+}
+
+.contained {
+  @include button-variant('contained');
+}
+
+.outlined {
+  @include button-variant('outlined');
+}
+
+.icon {
+  @include button-variant('icon');
+}
